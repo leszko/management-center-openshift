@@ -54,6 +54,8 @@ RUN chown -R $USER_UID:0 $HZ_HOME $MANCENTER_DATA
 RUN chmod +x $MC_HOME/*.sh
 USER $USER_UID
 
+RUN yum -y update-minimal --security --sec-severity=Important --sec-severity=Critical
+
 EXPOSE 8080
 
 CMD ["/bin/sh", "-c", "./start.sh"]
